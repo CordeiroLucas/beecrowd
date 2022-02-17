@@ -48,6 +48,9 @@ void printBin32 (int bin[32])
 {
 	for (int x = 0; x < 32; x++) {
 		printf("%d", bin[x]);
+		/*
+			A cada 1 byte ele separa (por questão de organização mesmo)
+		*/
 		if ((x+1)% 8 == 0)
 			printf(" ");
 	}
