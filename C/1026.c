@@ -61,6 +61,18 @@ void toBinarie (int num, int bin[32])
 {
 	int result;
 
+	/*
+	Ele começa mudando os valores do array bin da direita para a esquerda. Ele inicializa
+	a variável indexFim para em quanto for avançando na simplificação do número, ele não 
+	perder a posição correta para efetuar a troca (de 0 para 1).
+
+	Ex: toBinarie (4, bin)
+		passo 1 -> 4 diferente de 1 e o programa ainda não percorreu os 32 "bits" do array;
+		passo 2 -> o resto da divisão de 4 por 2 é 0, então o primeiro digito da direita para esquerda é 0,
+		 e armazena no bin na ultima posição; 
+		passo 3 -> ele atualiza o valor de 4 passando a ser 2 (num (antigo 4) = 4/2 -> num = 2);
+		passo 4 -> repete o processo até a divisão de num/2 passar a ser 1, que aí chegamos no fim da conversão.
+	*/
 	for (int indexFim = 31, i = 0; num != 0; indexFim--) {
 		result = num/2;
 		if (indexFim == 0 && result != 1) {
