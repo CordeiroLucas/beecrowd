@@ -1,5 +1,43 @@
 #include <stdio.h>
 
+/*
+	equalZero inicializa o array como um armazenamento de 4Bytes
+*/
+void equalZero (int bin[32]);
+/*
+	printBin32 percorre e printa o array separando por byte
+*/
+void printBin32 (int bin[32]);
+/*
+	toBinarie converte um número inteiro, em um número binário em um array já deixando
+	na ordem certa
+*/
+void toBinarie (int num, int bin[32]);
+
+int main(void)
+{
+	int a, b, binA[32], binB[32], binResult[32], finalResult;
+
+	equalZero(binA);
+	equalZero(binB);
+	equalZero(binResult);
+
+	scanf(" %d %d", &a, &b);
+
+	toBinarie(a, binA);
+	toBinarie(b, binB);
+
+	printBin32(binA);
+	printf("\n");
+	printBin32(binB);
+
+	printf("\n");
+ 
+
+
+	return 0;
+}
+
 void equalZero (int bin[32]) 
 {
 	for (int x = 0; x < 32; x++)
@@ -38,27 +76,3 @@ void toBinarie (int num, int bin[32])
 	}
 	return;
 }	
-
-int main(void)
-{
-	int a, b, binA[32], binB[32], binResult[32], finalResult;
-
-	equalZero(binA);
-	equalZero(binB);
-	equalZero(binResult);
-
-	scanf(" %d %d", &a, &b);
-
-	toBinarie(a, binA);
-	toBinarie(b, binB);
-
-	printBin32(binA);
-	printf("\n");
-	printBin32(binB);
-
-	printf("\n");
- 
-
-
-	return 0;
-}
