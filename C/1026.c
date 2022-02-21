@@ -1,6 +1,4 @@
 #include <stdio.h>
-
-
 /*
 	equalZero inicializa o array como um armazenamento de 4Bytes
 */
