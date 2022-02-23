@@ -13,28 +13,23 @@ int main(void)
 
 	scanf(" %[^\n]", texto);
 
-	printf("\n");
 
-	for (char i = texto[s];i != '\0'; s++, i = texto[s]) {
+	for (char i = tolower(texto[s]);i != '\0'; s++, i = tolower(texto[s])) {
 		
 		if (i != ' ' && i != EOF) {
 			if (caracterPalavra == 0 && s == 0) {
-				printf("%c", i);
 				letra0 = i;
 				letra1 = i;
 				caracterPalavra++;
 
 			} else if (caracterPalavra == 0) {
-				printf("%c", i);
 				letra1 = i;
 				caracterPalavra++;
 
 				if (letra0 == letra1) {
-					printf(" < - ponto igualdade ");
 					teveAlit = 1;
 					continue;
 				} else {
-					printf(" < - ponto desigualdade ");
 					letra0 = i;
 					if (teveAlit == 1) {
 						aliteracoes++;
@@ -49,7 +44,6 @@ int main(void)
 
 		} else if (i == ' ') {
 			caracterPalavra = 0;
-			printf("\n");
 
 		} else if (i == EOF) {
 			return 0;
