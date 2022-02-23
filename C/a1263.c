@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 /*
 	pegar apenas as primeiras letras das palavras
@@ -11,7 +12,6 @@ int main(void)
 	int s = 0, caracterPalavra = 0, aliteracoes = 0, teveAlit = 0;
 
 	scanf(" %[^\n]", texto);
-	printf("%s", texto);
 
 	printf("\n");
 
@@ -30,11 +30,12 @@ int main(void)
 				caracterPalavra++;
 
 				if (letra0 == letra1) {
+					printf(" < - ponto igualdade ");
 					teveAlit = 1;
 					continue;
 				} else {
+					printf(" < - ponto desigualdade ");
 					letra0 = i;
-					letra1 = i;
 					if (teveAlit == 1) {
 						aliteracoes++;
 						teveAlit = 0;
@@ -54,6 +55,11 @@ int main(void)
 			return 0;
 		}
 	}
+
+	if (teveAlit == 1) {
+		aliteracoes++;
+	}
+
 	printf("\naliterações: %d\n", aliteracoes);
 
 	return 0;
