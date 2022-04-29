@@ -45,7 +45,14 @@ int main (void)
 	selectionSort(listaAlunos);
 	
 	// Já atualiza o status do primeiro lugar para classificado
+<<<<<<< HEAD
 	strcpy(listaAlunos[0].status, "Classificado");
+=======
+	if (listaAlunos[0].media >= 6) {
+		strcpy(listaAlunos[0].status, "Classificado");
+	}
+	
+>>>>>>> 612f48f965c1ae395a94f1abf63d0779c0ee4c61
 
 	// Já printa o resultado
 	for (int i = 0; i < N; i++) {
