@@ -22,24 +22,25 @@ int main(void)
 	Pilha *apilha = (Pilha *)malloc(sizeof(Pilha));
 	initPilha(apilha);
 
-	int i, acoes, numero;
+	int i = 0, acoes, numero;
 	char opc[10];
 
 	scanf(" %d", &acoes);
 
-	for (i = 0; i < acoes; i++) {
+	do {
 		scanf(" %s %d", opc, &numero);
-
+	
 		if (strcmp(opc, "PUSH") == 0) {
 			push(numero, apilha);
-		} 
-		if (strcmp(opc, "POP") == 0) {
+			i++;
+		} else if (strcmp(opc, "POP") == 0) {
 			pop(apilha);
-		} 
-		if (strcmp(opc, "MIN") == 0) {
+			i++;
+		} else if (strcmp(opc, "MIN") == 0) {
 			min(apilha);
+			i++;
 		}
-	}
+	} while (i < acoes);
 	return 0;
 }
 
@@ -51,7 +52,6 @@ void initNode(int numero, Node *newNode)
 
 void initPilha(Pilha *apilha)
 {
-
 	apilha->topo = NULL;
 }
 
@@ -73,6 +73,7 @@ void pop(Pilha *apilha)
 		ptr = apilha->topo;
 		apilha->topo = ptr->next;
 		free(ptr);
+		return;
 	} else {
 		printf("EMPTY\n");
 	}
@@ -83,16 +84,19 @@ void min(Pilha *apilha)
 	Node *ptr;
 	int menor, incremento = 0;
 
-	for (ptr = apilha->topo; ptr != NULL; ptr = ptr->next) {
-		incremento++;
-		if (incremento == 1) {
-			menor = ptr->numero;
-		} else {
-			if (menor > ptr->numero) {
+	if (apilha->topo != NULL) {
+		for (ptr = apilha->topo; ptr != NULL; ptr = ptr->next) {
+			incremento++;
+			if (incremento == 1) {
 				menor = ptr->numero;
+			} else {
+				if (menor > ptr->numero) {
+					menor = ptr->numero;
+				}
 			}
 		}
+		printf("%d\n", menor);
 	}
-	printf("%d\n", menor);
+
 	return;
 }
